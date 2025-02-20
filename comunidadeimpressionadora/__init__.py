@@ -8,8 +8,8 @@ import os
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '855b555bcde2fa65e0f72cb1eea450cf'
-if os.getenv("DATABASE_URL"):
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+if os.getenv("${{ Postgres.DATABASE_URL }}"):
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("${{ Postgres.DATABASE_URL }}")
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
 
